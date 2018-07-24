@@ -8,6 +8,7 @@ import me.nikl.mpgamebundle.tictactoe.TttLanguage;
 import me.nikl.mpgamebundle.tictactoe.TttRules;
 import me.nikl.mpgamebundle.tictactoe.game.GameTimer;
 import me.nikl.mpgamebundle.tictactoe.game.TttGame;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryInteractEvent;
@@ -104,9 +105,11 @@ public class TttGameMP extends TttGame {
         ItemStack headOne = ItemStackUtility.getPlayerHead(playerOne.getName()).clone();
         ItemStack headTwo = ItemStackUtility.getPlayerHead(playerTwo.getName()).clone();
         ItemMeta meta = headOne.getItemMeta();
+        meta.setDisplayName(ChatColor.BLUE + playerOne.getName());
         meta.setLore(new ArrayList<>());
         headOne.setItemMeta(meta);
         meta = headTwo.getItemMeta();
+        meta.setDisplayName(ChatColor.BLUE + playerTwo.getName());
         meta.setLore(new ArrayList<>());
         headTwo.setItemMeta(meta);
         inventory.setItem(1, headOne);
@@ -115,18 +118,14 @@ public class TttGameMP extends TttGame {
 
     @Override
     public void onClick(InventoryClickEvent event) {
-        ticTacToe.info("click");
         if (gameOver) return;
         int gridSlot = toSmallGrid(event.getSlot());
-        ticTacToe.info("gridSlot: " + gridSlot);
         if (gridSlot < 0) return;
         if (firstTurn && !isPlayerOne(event)) return;
         if (!firstTurn && !isPlayerTwo(event)) return;
-        ticTacToe.info("turn: " + firstTurn);
         if (grid[gridSlot] != 0) return;
         grid[gridSlot] = firstTurn?1:2;
         inventory.setItem(event.getSlot(), firstTurn?markerPair.getOne():markerPair.getTwo());
-        ticTacToe.info("placed " + (firstTurn?"1":"2") + " in grid slot " + gridSlot);
         stonesPlaced ++;
         checkGameStatusAndNextTurn();
     }

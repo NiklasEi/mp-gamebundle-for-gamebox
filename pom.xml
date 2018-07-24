@@ -11,13 +11,6 @@
     <packaging>jar</packaging>
     <description>Collection of small multi player games</description>
 
-    <distributionManagement>
-        <repository>
-            <id>nikl-repo</id>
-            <url>http://repo.nikl.me/artifactory/repositories</url>
-        </repository>
-    </distributionManagement>
-
     <build>
         <defaultGoal>clean package</defaultGoal>
         <finalName>${project.name}</finalName>

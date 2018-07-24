@@ -86,6 +86,7 @@ public class TttGameSP extends TttGame {
     protected void setHeads() {
         ItemStack head = ItemStackUtility.getPlayerHead(player.getName()).clone();
         ItemMeta meta = head.getItemMeta();
+        meta.setDisplayName(ChatColor.BLUE + player.getName());
         meta.setLore(new ArrayList<>());
         head.setItemMeta(meta);
         inventory.setItem(1, head);
@@ -94,15 +95,12 @@ public class TttGameSP extends TttGame {
 
     @Override
     public void onClick(InventoryClickEvent event) {
-        ticTacToe.info("click");
         if (gameOver || !firstTurn) return;
         int gridSlot = toSmallGrid(event.getSlot());
-        ticTacToe.info("gridSlot: " + gridSlot);
         if (gridSlot < 0) return;
         if (grid[gridSlot] != 0) return;
         grid[gridSlot] = 1;
         inventory.setItem(event.getSlot(), markerPair.getOne());
-        ticTacToe.info("placed " + "1" + " in grid slot " + gridSlot);
         stonesPlaced ++;
         checkGameStatusAndNextTurn();
     }
@@ -150,29 +148,24 @@ public class TttGameSP extends TttGame {
 
     private void npcMove() {
         if (random.nextInt(100) < randomMoveProbability) {
-            ticTacToe.info("playing random");
             randomMove();
             return;
         }
         if (grid[4] == 0) {
-            ticTacToe.info("take middle");
             place(4);
             return;
         }
         int slotToWin = findSlotToWin(false);
         if (slotToWin >= 0) {
-            ticTacToe.info("win with " + slotToWin);
             place(slotToWin);
             return;
         }
         int slotToBlock = findSlotToWin(true);
         if (slotToBlock >= 0) {
-            ticTacToe.info("block " + slotToBlock);
             place(slotToBlock);
             return;
         }
         // not perfect, but don't wont to spend too much time on the AI. It should be impossible to win against.
-        ticTacToe.info("random, because nothing else to do");
         randomMove();
     }
 
@@ -192,7 +185,6 @@ public class TttGameSP extends TttGame {
     private void place(int gridSlot) {
         grid[gridSlot] = 2;
         inventory.setItem(toInventory(gridSlot), markerPair.getTwo());
-        ticTacToe.info("placed 2 in grid slot " + gridSlot);
         stonesPlaced ++;
         checkGameStatusAndNextTurn();
     }
@@ -200,12 +192,9 @@ public class TttGameSP extends TttGame {
     private void randomMove() {
         List<Integer> emptySlots = new ArrayList<>();
         for (int slot = 0; slot < 9; slot++) {
-            ticTacToe.info("slot " + slot + " is " + grid[slot]);
             if (grid[slot] == 0) emptySlots.add(slot);
         }
-        ticTacToe.info(emptySlots.toString());
         if (emptySlots.isEmpty()) {
-            ticTacToe.info("full grid during NPC move!");
             onDraw();
             return;
         }

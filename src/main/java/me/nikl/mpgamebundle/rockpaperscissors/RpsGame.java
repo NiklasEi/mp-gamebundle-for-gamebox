@@ -6,6 +6,7 @@ import me.nikl.gamebox.nms.NmsUtility;
 import me.nikl.gamebox.utility.ItemStackUtility;
 import me.nikl.gamebox.utility.Permission;
 import me.nikl.gamebox.utility.Sound;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -105,9 +106,11 @@ public class RpsGame {
         ItemStack head = ItemStackUtility.getPlayerHead(playerOne.getName()).clone();
         ItemStack headTwo = ItemStackUtility.getPlayerHead(playerTwo.getName()).clone();
         ItemMeta meta = head.getItemMeta();
+        meta.setDisplayName(ChatColor.BLUE + playerOne.getName());
         meta.setLore(new ArrayList<>());
         head.setItemMeta(meta);
         meta = headTwo.getItemMeta();
+        meta.setDisplayName(ChatColor.BLUE + playerTwo.getName());
         meta.setLore(new ArrayList<>());
         headTwo.setItemMeta(meta);
         inventory.setItem(1, head);
@@ -270,7 +273,6 @@ public class RpsGame {
     private void animateWin(boolean firstWon) {
         int destinationSlot = (firstWon?1:7) + 9*(firstWon?winsOne:winsTwo);
         if (destinationSlot > inventory.getSize()) {
-            rockPaperScissors.info("Animation out of inventory!");
             return;
         }
         animationSteps.clear();
