@@ -97,7 +97,7 @@ public class RpsGame {
 
     private void updateTitle() {
         if (playerTwo == null || playerOne == null) return;
-        String time = String.valueOf((stateEndTimeStamp - System.currentTimeMillis())/1000);
+        String time = String.valueOf(((stateEndTimeStamp - System.currentTimeMillis())/1000)+1);
         nmsUtility.updateInventoryTitle(playerTwo, currentSecondTitle.replace("%time%", time));
         nmsUtility.updateInventoryTitle(playerOne, currentFirstTitle.replace("%time%", time));
     }
