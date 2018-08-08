@@ -6,7 +6,7 @@
 
     <groupId>me.nikl</groupId>
     <artifactId>mp-gamebundle</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>MP-GameBundle</name>
     <packaging>jar</packaging>
     <description>Collection of small multi player games</description>
