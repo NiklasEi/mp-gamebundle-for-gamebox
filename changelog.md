@@ -1,6 +1,7 @@
 # Changelog
 
 - make countdowns not show '0 seconds left' (rock paper scissors)
+- fix some messages (placeholder %loser% was not being replaced)
 
 ### v 1.0.1
 - compatibility with minecraft 1.13

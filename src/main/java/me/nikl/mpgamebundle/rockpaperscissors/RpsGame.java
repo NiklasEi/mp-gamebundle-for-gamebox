@@ -9,7 +9,6 @@ import me.nikl.gamebox.utility.Sound;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -243,9 +242,9 @@ public class RpsGame {
             if (rockPaperScissors.getSettings().isEconEnabled()
                     && rules.getMoneyToWin() > 0
                     && !Permission.BYPASS_GAME.hasPermission(playerTwo, rockPaperScissors.getGameID())) {
-                playerTwo.sendMessage(language.PREFIX + language.GAME_WON_MONEY_TOO_SLOW.replace("%reward%", String.valueOf(rules.getMoneyToWin())));
+                playerTwo.sendMessage(language.PREFIX + language.GAME_WON_MONEY_TOO_SLOW.replace("%reward%", String.valueOf(rules.getMoneyToWin())).replace("%loser%", playerOne.getName()));
             } else {
-                playerTwo.sendMessage(language.PREFIX + language.GAME_WON_TOO_SLOW);
+                playerTwo.sendMessage(language.PREFIX + language.GAME_WON_TOO_SLOW.replace("%loser%", playerOne.getName()));
             }
             playerOne.sendMessage(language.PREFIX + language.GAME_TOO_SLOW);
             onGameWon(playerTwo);
@@ -255,9 +254,9 @@ public class RpsGame {
             if (rockPaperScissors.getSettings().isEconEnabled()
                     && rules.getMoneyToWin() > 0
                     && !Permission.BYPASS_GAME.hasPermission(playerOne, rockPaperScissors.getGameID())) {
-                playerOne.sendMessage(language.PREFIX + language.GAME_WON_MONEY_TOO_SLOW.replace("%reward%", String.valueOf(rules.getMoneyToWin())));
+                playerOne.sendMessage(language.PREFIX + language.GAME_WON_MONEY_TOO_SLOW.replace("%reward%", String.valueOf(rules.getMoneyToWin())).replace("%loser%", playerTwo.getName()));
             } else {
-                playerOne.sendMessage(language.PREFIX + language.GAME_WON_TOO_SLOW);
+                playerOne.sendMessage(language.PREFIX + language.GAME_WON_TOO_SLOW.replace("%loser%", playerTwo.getName()));
             }
             playerTwo.sendMessage(language.PREFIX + language.GAME_TOO_SLOW);
             onGameWon(playerOne);
