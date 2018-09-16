@@ -107,11 +107,11 @@ public class RpsGame {
         ItemStack head = ItemStackUtility.getPlayerHead(playerOne.getName()).clone();
         ItemStack headTwo = ItemStackUtility.getPlayerHead(playerTwo.getName()).clone();
         ItemMeta meta = head.getItemMeta();
-        meta.setDisplayName(ChatColor.BLUE + playerOne.getName());
+        meta.setDisplayName(language.GAME_PLAYER_HEAD_NAME.replace("%player%", playerOne.getName()));
         meta.setLore(new ArrayList<>());
         head.setItemMeta(meta);
         meta = headTwo.getItemMeta();
-        meta.setDisplayName(ChatColor.BLUE + playerTwo.getName());
+        meta.setDisplayName(language.GAME_PLAYER_HEAD_NAME.replace("%player%", playerTwo.getName()));
         meta.setLore(new ArrayList<>());
         headTwo.setItemMeta(meta);
         inventory.setItem(1, head);

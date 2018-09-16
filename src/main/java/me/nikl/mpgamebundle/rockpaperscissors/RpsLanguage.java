@@ -9,7 +9,7 @@ import me.nikl.gamebox.game.GameLanguage;
 public class RpsLanguage extends GameLanguage {
     public String TITLE_WON, TITLE_LOST, TITLE_WAIT, TITLE_CHOOSE, TITLE_NEXT_ROUND, TITLE_NEXT_ROUND_DRAW, TITLE_DRAW;
     public String GAME_PAYED, GAME_NOT_ENOUGH_MONEY, GAME_WON_MONEY, GAME_WON_MONEY_GAVE_UP, GAME_WON, GAME_LOSE, GAME_GAVE_UP, GAME_OTHER_GAVE_UP,
-            GAME_TOO_SLOW, GAME_WON_MONEY_TOO_SLOW, GAME_WON_TOO_SLOW;
+            GAME_TOO_SLOW, GAME_WON_MONEY_TOO_SLOW, GAME_WON_TOO_SLOW, GAME_PLAYER_HEAD_NAME;
 
     public RpsLanguage(Game game) {
         super(game);
@@ -44,5 +44,6 @@ public class RpsLanguage extends GameLanguage {
         this.GAME_TOO_SLOW = getString("game.tooSlow");
         this.GAME_WON_TOO_SLOW = getString("game.otherTooSlow");
         this.GAME_HELP = getStringList("gameHelp");
+        this.GAME_PLAYER_HEAD_NAME = getString("game.playerHeadName");
     }
 }
