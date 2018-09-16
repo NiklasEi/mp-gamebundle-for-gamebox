@@ -48,6 +48,8 @@ public class RpsGame {
 
     public RpsGame(RockPaperScissors rockPaperScissors, RpsRules rule, Player player, Player player1) {
         this.rules = rule;
+        waitTime = rules.getWaitTime();
+        chooseTime = rules.getChooseTime();
         RpsGame.rockPaperScissors = rockPaperScissors;
         this.inventory = rockPaperScissors.createInventory(54, "");
         this.playerOne = player;

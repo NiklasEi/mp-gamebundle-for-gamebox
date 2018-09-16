@@ -1,5 +1,7 @@
 # Changelog
 
+- fix option 'timePerTurn' and introduce 'waitPerTurn' in the config
+
 ### v 1.0.2
 - make countdowns not show '0 seconds left' (rock paper scissors)
 - fix some messages (placeholder %loser% was not being replaced)
