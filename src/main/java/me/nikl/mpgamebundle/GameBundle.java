@@ -19,7 +19,7 @@ public class GameBundle extends JavaPlugin {
     public void onEnable() {
         Plugin plugin = Bukkit.getPluginManager().getPlugin("GameBox");
         if (plugin == null || !plugin.isEnabled()) {
-            getLogger().warning(" GameBox was not found! Disabling Battleship...");
+            getLogger().warning(" GameBox was not found! Disabling MP-GameBundle...");
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
