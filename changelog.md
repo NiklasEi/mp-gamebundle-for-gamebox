@@ -1,5 +1,7 @@
 # Changelog
 
+### v 1.0.3
+- make titles of player heads (in rock paper scissors) configurable in the language file
 - fix option 'timePerTurn' and introduce 'waitPerTurn' in the config
 
 ### v 1.0.2
