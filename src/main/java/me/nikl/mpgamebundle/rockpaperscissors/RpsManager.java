@@ -62,8 +62,8 @@ public class RpsManager extends EasyManager {
         boolean loseOnTimeOver = true;
         int rounds = buttonSec.getInt("rounds", 5);
         RpsRules rules = new RpsRules(buttonID, saveStats, SaveType.WINS, cost, reward, tokens, loseOnTimeOver, rounds);
-        rules.setWaitTime(buttonSec.getInt("waitPerTurn", 5));
-        rules.setChooseTime(buttonSec.getInt("timePerTurn", 10));
+        rules.setWaitTime(buttonSec.getInt("waitPerTurn", 5) * 1000); // seconds to milliseconds
+        rules.setChooseTime(buttonSec.getInt("timePerTurn", 10) * 1000); // seconds to milliseconds
         gameTypes.put(buttonID, rules);
     }
 
