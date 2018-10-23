@@ -70,7 +70,7 @@ public class TttGameMP extends TttGame {
                     && !Permission.BYPASS_GAME.hasPermission(playerTwo, ticTacToe.getGameID())) {
                 playerTwo.sendMessage(language.PREFIX + language.GAME_WON_MONEY_TOO_SLOW.replace("%reward%", String.valueOf(rules.getMoneyToWin())));
             } else {
-                playerTwo.sendMessage(language.PREFIX + language.GAME_WON_TOO_SLOW);
+                playerTwo.sendMessage(language.PREFIX + language.GAME_WON_TOO_SLOW.replace("%loser%", playerTwo.getName()));
             }
             playerOne.sendMessage(language.PREFIX + language.GAME_TOO_SLOW);
             nmsUtility.updateInventoryTitle(playerOne, language.TITLE_LOST);
@@ -81,9 +81,9 @@ public class TttGameMP extends TttGame {
                     && !Permission.BYPASS_GAME.hasPermission(playerOne, ticTacToe.getGameID())) {
                 playerOne.sendMessage(language.PREFIX + language.GAME_WON_MONEY_TOO_SLOW.replace("%reward%", String.valueOf(rules.getMoneyToWin())));
             } else {
-                playerOne.sendMessage(language.PREFIX + language.GAME_WON_TOO_SLOW);
+                playerOne.sendMessage(language.PREFIX + language.GAME_WON_TOO_SLOW.replace("%loser%", playerTwo.getName()));
             }
-            playerTwo.sendMessage(language.PREFIX + language.GAME_GAVE_UP);
+            playerTwo.sendMessage(language.PREFIX + language.GAME_TOO_SLOW);
             nmsUtility.updateInventoryTitle(playerTwo, language.TITLE_LOST);
             nmsUtility.updateInventoryTitle(playerOne, language.TITLE_WON);
         }
