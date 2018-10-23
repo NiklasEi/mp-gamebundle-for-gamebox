@@ -191,6 +191,6 @@ public class TttGameMP extends TttGame {
             playerTwo.sendMessage(language.PREFIX + language.GAME_GAVE_UP);
             nmsUtility.updateInventoryTitle(playerOne, language.TITLE_WON);
         }
-        ticTacToe.onGameWon(uuid.equals(playerOne.getUniqueId())?playerOne:playerTwo, rules, 1);
+        ticTacToe.onGameWon(uuid.equals(playerOne.getUniqueId())?playerTwo:playerOne, rules, 1);
     }
 }
