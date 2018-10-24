@@ -1,5 +1,9 @@
 # Changelog
 
+### v 1.0.4
+- TTT: fix messages on won (other too slow)
+- TTT: fix wrong player getting payed (other too slow)
+
 ### v 1.0.3
 - make titles of player heads (in rock paper scissors) configurable in the language file
 - fix option 'timePerTurn' and introduce 'waitPerTurn' in the config
