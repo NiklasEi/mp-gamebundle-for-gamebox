@@ -3,8 +3,6 @@ package me.nikl.mpgamebundle.tictactoe;
 import me.nikl.gamebox.GameBox;
 import me.nikl.gamebox.game.GameSettings;
 import me.nikl.mpgamebundle.GameBundle;
-import me.nikl.mpgamebundle.tictactoe.TicTacToe;
-import me.nikl.mpgamebundle.tictactoe.TttManager;
 
 /**
  * @author Niklas Eicker
@@ -23,5 +21,10 @@ public class TicTacToeSP extends TicTacToe {
     @Override
     public void loadGameManager() {
         gameManager = new TttManager(this, true);
+    }
+
+    @Override
+    public void loadLanguage() {
+        gameLang = new TttLanguage(this, false);
     }
 }

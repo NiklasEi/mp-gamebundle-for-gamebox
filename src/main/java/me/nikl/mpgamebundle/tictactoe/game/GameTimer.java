@@ -1,6 +1,5 @@
 package me.nikl.mpgamebundle.tictactoe.game;
 
-import me.nikl.mpgamebundle.tictactoe.game.TttGame;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**

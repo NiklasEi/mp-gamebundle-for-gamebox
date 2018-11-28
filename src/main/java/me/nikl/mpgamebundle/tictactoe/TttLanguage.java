@@ -9,10 +9,11 @@ import me.nikl.gamebox.game.GameLanguage;
 public class TttLanguage extends GameLanguage {
     public String TITLE_WON, TITLE_LOST, TITLE_YOUR_TURN, TITLE_OTHERS_TURN, TITLE_DRAW;
     public String GAME_PAYED, GAME_NOT_ENOUGH_MONEY, GAME_WON_MONEY, GAME_WON_MONEY_GAVE_UP, GAME_WON, GAME_LOSE, GAME_GAVE_UP, GAME_OTHER_GAVE_UP,
-            GAME_TOO_SLOW, GAME_WON_MONEY_TOO_SLOW, GAME_WON_TOO_SLOW, GAME_DRAW;
+            GAME_TOO_SLOW, GAME_WON_MONEY_TOO_SLOW, GAME_WON_TOO_SLOW, GAME_DRAW, GAME_PLAYER_HEAD_NAME;
 
-    public TttLanguage(Game game) {
+    public TttLanguage(Game game, boolean multiPlayer) {
         super(game);
+        if (multiPlayer) getMultiPlayerMessages();
     }
 
     @Override
@@ -43,5 +44,9 @@ public class TttLanguage extends GameLanguage {
         this.GAME_TOO_SLOW = getString("game.tooSlow");
         this.GAME_WON_TOO_SLOW = getString("game.otherTooSlow");
         this.GAME_HELP = getStringList("gameHelp");
+    }
+
+    private void getMultiPlayerMessages() {
+        this.GAME_PLAYER_HEAD_NAME = getString("game.playerHeadName");
     }
 }

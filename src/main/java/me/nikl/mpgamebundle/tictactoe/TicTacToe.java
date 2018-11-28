@@ -132,7 +132,7 @@ public class TicTacToe extends Game {
 
     @Override
     public void loadLanguage() {
-        gameLang = new TttLanguage(this);
+        gameLang = new TttLanguage(this, true);
     }
 
     @Override
