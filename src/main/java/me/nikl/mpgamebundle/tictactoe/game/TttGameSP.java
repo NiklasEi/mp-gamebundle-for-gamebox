@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -165,8 +166,19 @@ public class TttGameSP extends TttGame {
             place(slotToBlock);
             return;
         }
-        // not perfect, but don't wont to spend too much time on the AI. It should be impossible to win against.
+        // Since the middle slot is taken, corners are the strongest places now
+        if (placeRandomCorner()) return;
         randomMove();
+    }
+
+    private boolean placeRandomCorner() {
+        List<Integer> emptyCorners = new ArrayList<>();
+        for (int slot : Arrays.asList(0, 2, 6, 8)) {
+            if (grid[slot] == 0) emptyCorners.add(slot);
+        }
+        if (emptyCorners.isEmpty()) return false;
+        place(emptyCorners.get(random.nextInt(emptyCorners.size())));
+        return true;
     }
 
     private int findSlotToWin(boolean player) {
