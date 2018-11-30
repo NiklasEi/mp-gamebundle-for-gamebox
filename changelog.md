@@ -1,11 +1,15 @@
 # Changelog
 
+### v 1.0.5
+- TTT MP: configurable skull names
+- TTT SP: improve the AI (blocking an effective winning strategy)
+
 ### v 1.0.4
 - TTT: fix messages on won (other too slow)
 - TTT: fix wrong player getting payed (other too slow)
 
 ### v 1.0.3
-- make titles of player heads (in rock paper scissors) configurable in the language file
+- RPS: make titles of player heads configurable in the language file
 - fix option 'timePerTurn' and introduce 'waitPerTurn' in the config
 
 ### v 1.0.2
