@@ -73,8 +73,8 @@ rock:
 
 # indicators
 indicatorWon:
-  materialData: 'stained_glass_pane:5'
+  materialData: 'LIME_STAINED_GLASS_PANE'
   displayName: '&5Won'
 indicatorPlaceholder:
-  materialData: 'stained_glass_pane:7'
+  materialData: 'GRAY_STAINED_GLASS_PANE'
   displayName: '&5'

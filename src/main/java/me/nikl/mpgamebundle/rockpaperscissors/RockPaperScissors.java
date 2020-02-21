@@ -54,14 +54,14 @@ public class RockPaperScissors extends Game {
     }
 
     private void loadDefaultIndicatorPlaceholder() {
-        this.indicatorPlaceholder = ItemStackUtility.getItemStack("stained_glass_pane:7");
+        this.indicatorPlaceholder = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
         ItemMeta meta = indicatorPlaceholder.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_AQUA.toString());
         indicatorPlaceholder.setItemMeta(meta);
     }
 
     private void loadDefaultIndicatorWon() {
-        this.indicatorWon = ItemStackUtility.getItemStack("stained_glass_pane:5");
+        this.indicatorWon = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1);
         ItemMeta meta = indicatorWon.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_AQUA + "Won");
         indicatorWon.setItemMeta(meta);
