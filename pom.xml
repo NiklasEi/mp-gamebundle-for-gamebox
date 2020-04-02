@@ -4,12 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.nikl</groupId>
+    <groupId>me.nikl.gamebox.games</groupId>
     <artifactId>mp-gamebundle</artifactId>
-    <version>1.0.5</version>
     <name>MP-GameBundle</name>
     <packaging>jar</packaging>
+    <version>2.0.0-beta</version>
     <description>Collection of small multi player games</description>
+
+    <distributionManagement>
+        <repository>
+            <id>nikl-repo</id>
+            <url>http://repo.nikl.me/artifactory/public</url>
+        </repository>
+    </distributionManagement>
+
+    <scm>
+        <url>https://github.com/NiklasEi/mp-gamebundle-for-gamebox</url>
+        <connection>git@github.com:NiklasEi/mp-gamebundle-for-gamebox.git</connection>
+    </scm>
 
     <build>
         <defaultGoal>clean package</defaultGoal>
@@ -35,17 +47,30 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create-timestamp</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <repositories>
         <repository>
-            <id>nikl-repo</id>
-            <url>http://repo.nikl.me/artifactory/repositories</url>
-        </repository>
-        <repository>
             <id>bukkit-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>nikl-repo</id>
+            <url>http://repo.nikl.me/artifactory/public</url>
         </repository>
     </repositories>
 
@@ -53,13 +78,13 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.14.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>me.nikl</groupId>
-            <artifactId>gamebox-core</artifactId>
-            <version>2.1.1</version>
+            <artifactId>gamebox</artifactId>
+            <version>${gamebox.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -69,5 +94,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <gamebox.version>3.0.0-beta.2</gamebox.version>
     </properties>
 </project>

@@ -1,6 +1,0 @@
-name: MP-GameBundle
-author: Nikl
-main: me.nikl.mpgamebundle.GameBundle
-version: 1.0.5
-website: nikl.me
-depend: [GameBox]
